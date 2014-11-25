@@ -14,8 +14,7 @@ import java.util.prefs.Preferences;
  */
 public final class DBCredentials {
 
-	private static final String unameKey = "username";
-	private static final String passwordKey = "password";
+
 
 	private Preferences credentials;
 
@@ -39,16 +38,9 @@ public final class DBCredentials {
 	 * 
 	 * @return a database user name
 	 */
-	public String getUname() {
+	public String get(String unameKey) {
 		return credentials.get(unameKey, null);
 	}
 
-	/**
-	 * 
-	 * @return a database password
-	 */
-	public String getPassword() {
-		return credentials.get(passwordKey, null);
-	}
 
 }
