@@ -30,3 +30,8 @@ local.properties
 .settings/
 .loadpath
 
+#credentials 
+classified/
+
+#others
+test/
