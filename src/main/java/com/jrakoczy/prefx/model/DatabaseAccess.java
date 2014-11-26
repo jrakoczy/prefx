@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.prefs.InvalidPreferencesFormatException;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletResponse;
 
 import com.jrakoczy.prefx.credentials.DBCredentials;
 
@@ -18,7 +17,7 @@ import com.jrakoczy.prefx.credentials.DBCredentials;
  * 
  * @author kuba
  */
-public class DatabaseAccess {
+class DatabaseAccess {
 
 	/**
 	 * A key of user name stored in an external file.

@@ -10,44 +10,42 @@ import java.util.prefs.InvalidPreferencesFormatException;
 import javax.servlet.ServletContext;
 
 /**
- * A class used to perform operations on user data stored in a database.
+ * A class used to perform operations on recipients data stored in a database.
  * 
  * @author kuba
  */
-public class UserManager extends DataManager{
-
+public class RecipentManager extends DataManager {
 
 	/**
-	 * Creates a new {@code AccountManager} instance using a given
+	 * Creates a new {@code RecipentManager} instance using a given
 	 * {@code ServletContext}.
 	 * 
 	 * @param context
 	 */
-	public UserManager(ServletContext context) {
+	public RecipentManager(ServletContext context) {
 		super(context);
 	}
 
 	/**
 	 * 
 	 * @param email
-	 * @param passwordHash
+	 * @param surveyId
 	 * @throws ClassNotFoundException
+	 * @throws SQLException
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
-	 * @throws SQLException
 	 */
-	public void addRecord(String email, String passwordHash)
-			throws ClassNotFoundException, IOException,
-			InvalidPreferencesFormatException, SQLException {
-
+	public void addRecord(String email, int surveyId)
+			throws ClassNotFoundException, SQLException, IOException,
+			InvalidPreferencesFormatException {
 		DatabaseAccess dbAccess = new DatabaseAccess(context);
 
 		try (Connection connection = dbAccess.connect();) {
-			String insert = "INSERT INTO users (id, email, password_hash) VALUES (DEFAULT, ?, ?);";
+			String insert = "INSERT INTO recipents (id, email, survey_id) VALUES (DEFAULT, ?, ?);";
 			PreparedStatement statement = connection.prepareStatement(insert);
 
 			statement.setString(1, email);
-			statement.setString(2, passwordHash);
+			statement.setInt(2, surveyId);
 			statement.executeUpdate();
 		}
 	}
@@ -55,26 +53,29 @@ public class UserManager extends DataManager{
 	/**
 	 * 
 	 * @param email
-	 * @throws InvalidPreferencesFormatException
-	 * @throws IOException
-	 * @throws SQLException
+	 * @param surveyId
+	 * @return
 	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @throws IOException
+	 * @throws InvalidPreferencesFormatException
 	 */
-	public ResultSet findPasswordHash(String email)
+	public ResultSet findId(String email, int surveyId)
 			throws ClassNotFoundException, SQLException, IOException,
 			InvalidPreferencesFormatException {
-
 		ResultSet results = null;
 		DatabaseAccess dbAccess = new DatabaseAccess(context);
 
 		try (Connection connection = dbAccess.connect();) {
-			String select = "SELECT password_hash FROM users WHERE email = ?;";
+			String select = "SELECT id FROM recipents WHERE email = ? AND survey_id = ?;";
 			PreparedStatement statement = connection.prepareStatement(select);
 
 			statement.setString(1, email);
+			statement.setInt(2, surveyId);
 			results = statement.executeQuery();
 		}
 
 		return results;
 	}
+
 }
