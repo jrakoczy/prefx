@@ -9,7 +9,7 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
-		
+
 		<!-- jUnit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -17,26 +17,20 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- servlet api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
 		</dependency>
-		
+
+
 		<!-- postgres drivers -->
 		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.1-901-1.jdbc4</version>
-		</dependency>
-		
-		<!-- c3p0 connection pool lib -->
-		<dependency>
-			<groupId>c3p0</groupId>
-			<artifactId>c3p0</artifactId>
-			<version>0.9.1.2</version>
 		</dependency>
 
 
