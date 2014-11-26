@@ -45,7 +45,7 @@ public class RecipentManager extends DataManager {
 			PreparedStatement statement = connection.prepareStatement(insert);
 
 			statement.setString(1, email);
-			statement.setInt(2, surveyId);
+			statement.setLong(2, surveyId);
 			statement.executeUpdate();
 		}
 	}
@@ -60,7 +60,7 @@ public class RecipentManager extends DataManager {
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
 	 */
-	public ResultSet findId(String email, int surveyId)
+	public ResultSet findId(String email, long surveyId)
 			throws ClassNotFoundException, SQLException, IOException,
 			InvalidPreferencesFormatException {
 		ResultSet results = null;
@@ -71,7 +71,7 @@ public class RecipentManager extends DataManager {
 			PreparedStatement statement = connection.prepareStatement(select);
 
 			statement.setString(1, email);
-			statement.setInt(2, surveyId);
+			statement.setLong(2, surveyId);
 			results = statement.executeQuery();
 		}
 
