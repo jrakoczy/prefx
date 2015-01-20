@@ -1,4 +1,4 @@
-package com.jrakoczy.prefx.controller;
+package com.jrakoczy.prefx.presenter;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class OverviewServlet
+ * Servlet implementation class DisplaySurveyServlet
  */
-public class OverviewServlet extends HttpServlet {
+public class DisplaySurveyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OverviewServlet() {
+    public DisplaySurveyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

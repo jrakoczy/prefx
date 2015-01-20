@@ -51,7 +51,6 @@ abstract class DataManager {
 	private ResultSet executeStatement(String query, StatementLambda stLambda)
 			throws ClassNotFoundException, SQLException, IOException,
 			InvalidPreferencesFormatException {
-		ResultSet results = null;
 		DatabaseAccess dbAccess = new DatabaseAccess(context);
 
 		try (Connection connection = dbAccess.connect();) {

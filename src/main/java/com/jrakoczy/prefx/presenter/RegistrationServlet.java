@@ -1,10 +1,11 @@
-package com.jrakoczy.prefx.controller;
+package com.jrakoczy.prefx.presenter;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.prefs.InvalidPreferencesFormatException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -48,7 +49,7 @@ public class RegistrationServlet extends HttpServlet {
 	private void registerUser(HttpServletRequest request,
 			HttpServletResponse response) throws ClassNotFoundException,
 			IOException, InvalidPreferencesFormatException, SQLException,
-			NoSuchAlgorithmException {
+			NoSuchAlgorithmException, ServletException {
 		ServletContext context = getServletContext();
 		UserManager userManager = new UserManager(context);
 
@@ -57,6 +58,8 @@ public class RegistrationServlet extends HttpServlet {
 		String passwordHash = Encryption.hashSha256(password);
 
 		userManager.insertRecord(email, passwordHash);
+		RequestDispatcher rd = request.getRequestDispatcher("login.html");
+		rd.forward(request, response);
 	}
 
 }
