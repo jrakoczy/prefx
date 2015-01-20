@@ -1,8 +1,6 @@
 package com.jrakoczy.prefx.model;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.prefs.InvalidPreferencesFormatException;
@@ -14,8 +12,7 @@ import javax.servlet.ServletContext;
  * 
  * @author kuba
  */
-public class UserManager extends DataManager{
-
+public class UserManager extends DataManager {
 
 	/**
 	 * Creates a new {@code AccountManager} instance using a given
@@ -36,20 +33,23 @@ public class UserManager extends DataManager{
 	 * @throws InvalidPreferencesFormatException
 	 * @throws SQLException
 	 */
-	public void addRecord(String email, String passwordHash)
+	public void insertRecord(String email, String passwordHash)
 			throws ClassNotFoundException, IOException,
 			InvalidPreferencesFormatException, SQLException {
 
-		DatabaseAccess dbAccess = new DatabaseAccess(context);
+		String query = "INSERT INTO users (id, email, password_hash) VALUES (DEFAULT, ?, ?);";
+		StatementLambda stLambda = (statement) -> {
+			try {
+				statement.setString(1, email);
+				statement.setString(2, passwordHash);
+				statement.executeUpdate();
+				return statement.getResultSet();
+			} catch (Exception e) {
+				throw new SQLException();
+			}
+		};
 
-		try (Connection connection = dbAccess.connect();) {
-			String insert = "INSERT INTO users (id, email, password_hash) VALUES (DEFAULT, ?, ?);";
-			PreparedStatement statement = connection.prepareStatement(insert);
-
-			statement.setString(1, email);
-			statement.setString(2, passwordHash);
-			statement.executeUpdate();
-		}
+		alter(query, stLambda);
 	}
 
 	/**
@@ -64,17 +64,16 @@ public class UserManager extends DataManager{
 			throws ClassNotFoundException, SQLException, IOException,
 			InvalidPreferencesFormatException {
 
-		ResultSet results = null;
-		DatabaseAccess dbAccess = new DatabaseAccess(context);
+		String query = "SELECT password_hash FROM users WHERE email = ?;";
+		StatementLambda stLambda = (statement) -> {
+			try {
+				statement.setString(1, email);
+				return statement.executeQuery();
+			} catch (Exception e) {
+				throw new SQLException();
+			}
+		};
 
-		try (Connection connection = dbAccess.connect();) {
-			String select = "SELECT password_hash FROM users WHERE email = ?;";
-			PreparedStatement statement = connection.prepareStatement(select);
-
-			statement.setString(1, email);
-			results = statement.executeQuery();
-		}
-
-		return results;
+		return select(query, stLambda);
 	}
 }

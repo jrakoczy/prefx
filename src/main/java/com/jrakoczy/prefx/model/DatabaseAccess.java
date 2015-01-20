@@ -69,6 +69,7 @@ class DatabaseAccess {
 
 		// Retrieve credentials
 		InputStream inStream = context.getResourceAsStream(credentialsPath);
+		
 		DBCredentials dbCredentials = new DBCredentials(inStream);
 		String username = dbCredentials.get(unameKey);
 		String password = dbCredentials.get(passwordKey);

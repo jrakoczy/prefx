@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jakub Rakoczy">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+    <title>PrefX</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/global-responsive.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/overview.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+</head>
+<body>
+<header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom" role="navigation">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <a href="#">
+                        <img src="img/chart_icon.jpg">
+                        PrefX
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Sign out</a></li>
+                    <li><a href="#">Language</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+
+<!-- Sidebar -->
+
+<aside id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li>
+            <a href="overview.html">Overview</a>
+        </li>
+        <li>
+            <a href="survey.html">New Survey</a>
+        </li>
+        <li>
+            <a href="results.html">Results</a>
+        </li>
+        <li>
+            <a href="#">Account</a>
+        </li>
+        <li>
+            <a href="#">Contact</a>
+        </li>
+    </ul>
+</aside>
+<!-- /#sidebar-wrapper -->
+
+
+<!-- Page content -->
+<section>
+    <div class="row body-panel">
+
+        <div class="col-md-10 col-md-offset-2">
+            <ul class="list-group">
+                <p class="list-group-item-heading list-group-item active">Profile overview</p>
+
+                <li class="list-group-item"><strong>Surveys created: </strong></li>
+                <li class="list-group-item"><strong>Total surveys received:</strong></li>
+                <li class="list-group-item"><strong>New surveys received: </strong></li>
+                <li class="list-group-item"><strong>Latest survey received:</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+</body>
+</html>

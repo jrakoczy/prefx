@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="author" content="Jakub Rakoczy">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<title>PrefX</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/front.css">
+<link rel="stylesheet" href="css/global-responsive.css">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/front.js"></script>
+
+
+<head>
+</head>
+<body>
+<header>
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom" role="navigation">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <a href="#">
+                        <img src="img/chart_icon.jpg">
+                        PrefX
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Sign in</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#register-modal">Sign up</a></li>
+                    <li><a href="#">Language</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header content -->
+    <div id="header-content">
+        <div id="welcome_msg">
+            <p> Web tool for <br> preference analysis</p>
+        </div>
+        <button type="button" class="btn btn-black btn-lg" data-toggle="modal"
+                data-target="#register-modal">Create account
+        </button>
+    </div>
+
+</header>
+
+<!-- Page content -->
+<section>
+
+    <div class="feature">
+        <div class="row">
+
+            <div class="col-md-5">
+                <h3>Donec dapibus</h3>
+
+                <p>Sed purus orci, aliquet at enim id, semper venenatis lacus. Etiam sed posuere libero.
+                    Interdum et
+                    malesuada fames ac ante ipsum primis in faucibus. Nunc dignissim sapien eu quam scelerisque,
+                    eget egestas tortor tempor. Nulla ullamcorper orci sit amet consectetur dictum.</p>
+            </div>
+
+            <div class="col-md-5 col-md-offset-1">
+                <img src="img/graph1.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="feature">
+        <div class="row">
+
+            <div class="col-md-5">
+                <img src="img/graph3.png">
+            </div>
+
+            <div class="col-md-5 col-md-offset-1">
+                <h3>Etiam sed</h3>
+
+                <p> Phasellus eros enim, sollicitudin a mattis quis, rhoncus vestibulum ipsum. Integer ultrices
+                    tellus eu condimentum tristique. Proin suscipit ante accumsan orci finibus, eu venenatis
+                    ante
+                    iaculis. Morbi mi metus, consequat nec rhoncus quis, cursus vitae sem.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="feature">
+        <h3>Suspendisse vel lorem</h3>
+
+        <p> Curabitur eu magna quis mi volutpat efficitur. Pellentesque tincidunt purus vitae pretium lacinia.
+            Praesent mollis pellentesque tortor eget hendrerit. Phasellus quis ex et nisl dapibus congue ut
+            pellentesque tortor. Mauris porttitor eu arcu in venenatis. Phasellus lobortis orci sed ipsum
+            aliquet,
+            eu sodales augue condimentum. Suspendisse vel lorem et arcu pharetra lobortis id non ante.</p>
+
+        <div class="row feature-bottom">
+
+            <div class="col-md-3 col-md-offset-2">
+                <img src="img/graph3.png">
+            </div>
+
+            <div class="col-md-3 col-md-offset-1">
+                <img src="img/graph4.png">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="feature">
+        <h3>Morbi mi metus</h3>
+
+        <p> Duis massa est, aliquet at nisl sit amet, aliquam ullamcorper ex. Integer bibendum ligula vitae nibh
+            convallis, ut ultricies dolor interdum. Phasellus eros enim, sollicitudin a mattis quis, rhoncus
+            vestibulum ipsum. Integer ultrices tellus eu condimentum tristique. Proin suscipit ante accumsan
+            orci
+            finibus, eu venenatis ante iaculis. Morbi mi metus, consequat nec rhoncus quis, cursus vitae
+            sem.</p>
+
+        <div class="row feature-bottom">
+            <div class="col-md-4 col-md-offset-4">
+                <img src="img/graph5.png">
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p> &copy Jakub Rakoczy 2014</p>
+</footer>
+
+<!-- Registration Modal -->
+<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="rg-modal-title"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="rg-modal-title">Registration Form</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="register-form" action="" method="post ">
+                    <div class="form-group">
+                        <label for="rg-email">Email address</label>
+                        <input type="email" class="form-control" id="rg-email" placeholder="Enter email" name="email"
+                               required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="rg-password">Password</label>
+                        <input type="password" class="form-control" id="rg-password" placeholder="Password"
+                               name="password"
+                               required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="retyped-password">Retype Password</label>
+                        <input type="password" class="form-control" id="retyped-password" placeholder="Password"
+                               required="">
+                    </div>
+                    <div class="control-modal-form">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-black" for="register-form">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="rg-modal-title"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="log-modal-title">Sign in</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="login-form" action="" method="post ">
+                    <div class="form-group">
+                        <label for="log-email">Email address</label>
+                        <input type="email" class="form-control" id="log-email" placeholder="Enter email" name="email"
+                               required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="log-password">Password</label>
+                        <input type="password" class="form-control" id="log-password" placeholder="Password"
+                               name="password"
+                               required="">
+                    </div>
+
+                    <div class="control-modal-form">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-black">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+.fp-controlArrow.fp-next {
+    border-color: transparent transparent transparent #000;
+}
+
+.fp-controlArrow.fp-prev {
+    border-color: transparent #F3F3F1 transparent transparent;
+}
+
+.border {
+    background-color: #F3F3F1;
+    color:   #000000;
+    font-family: "Varela Round", sans-serif;
+}
+
+h1 {
+    display: block;
+    font-size: 3em;
+    margin: 0 auto;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+p{
+    text-align: center;
+}
+
+#intro {
+    font-size: 1.8em;
+    margin: auto;
+    max-width: 70%;
+    margin-bottom: 3%;
+}
+
+#instructions{
+    font-size: 1.2em;
+    max-width: 50%;
+    margin: auto;
+    color: #666666;
+}
+
+.product {
+    position: relative;
+    height: 100%;
+    width: 50%;
+    float: left;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*.product .img-background {
+    position: absolute;
+    height: 35%;
+    width: 50%;
+    top: 5%;
+    left: 25%;
+    border-radius: 6px;
+    border: 20px solid;
+
+}*/
+
+.product img {
+    display: block;
+    box-sizing: border-box;
+    max-height: 35%;
+    max-width: 50%;
+    border: 2px solid;
+    border-radius: 6px;
+    padding: 5%;
+    margin: 5% auto;
+}
+
+.product-title {
+    position: absolute;
+    width: 20%;
+    height: 10%;
+    top: 42%;
+    left: 40%;
+    font-size: 1.5em;
+}
+
+.product-info {
+    position: absolute;
+    width: 60%;
+    height: 10%;
+    top: 50%;
+    left: 20%;
+}
+
+.first {
+    background-color: #000;
+    color: #F3F3F1;
+}
+
+.first img {
+    background-color: #F3F3F1;
+}
+
+
+.second {
+    background-color: #F3F3F1;
+    color: #000000;
+}
+
+.second img{
+    background-color: #000;
+}
+
+
+input[type='range'] {
+    -webkit-appearance: none !important;
+    -moz-apperance: none;
+    z-index: 1000;
+    display: block;
+    position: absolute;
+    height: 15px;
+    width: 100%;
+    bottom: 15%;
+    left: 50%;
+    border-radius: 6px;
+    background-image: -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            color-stop(0.5, #F3F3F1),
+            color-stop(0.5, #000)
+    );
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background-color: #E9E9E9;
+    border: 1px solid #000;
+    height: 15px;
+    width: 15px;
+}
+
+.range-hint {
+    position: absolute;
+    height: 5%;
+    width: 30%;
+    bottom: 18%;
+    z-index: 1000;
+    font-weight: 700;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.hint-first {
+    left: 65%;
+}
+
+.hint-second {
+    left: 115%;
+    color: #000000;
+}
+
+.range-label {
+    position: absolute;
+    height: 5%;
+    max-width: 10%;
+    bottom: 8.5%;
+    z-index: 1000;
+    font-weight: 700;
+}
+
+.def-first {
+    left: 47.5%;
+}
+
+.highly-first {
+    left: 63%;
+}
+
+.prolly-first {
+    left: 80%;
+}
+
+.prolly-second {
+    left: 112%;
+    color: #000000;
+}
+
+.highly-second {
+    left: 129.5%;
+    color: #000000;
+}
+
+.def-second {
+    left: 146%;
+    color: #000000;
+}
+
+
+
+

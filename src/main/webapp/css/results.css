@@ -1,0 +1,32 @@
+header{
+    min-height: 50px;
+}
+
+.body-panel {
+    margin-top: 2%;
+}
+
+.wrapper-head{
+    border-bottom: 1px solid #000;
+    padding-bottom: 20px;
+}
+
+.element-head {
+    height: 75px;
+    position: relative;
+}
+
+.element-head .dropdown{
+    position: absolute;
+    bottom: 0;
+}
+
+#results-chart {
+    width: 500px;
+    height: 500px;
+    margin-top: 20px;
+}
+
+#results-table{
+    margin-top: 20px;
+}

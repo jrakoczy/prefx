@@ -1,0 +1,76 @@
+header {
+    background: url('../img/crowd.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    border-bottom: 2px solid #000;
+}
+
+#header-content {
+    box-sizing: border-box;
+    text-align: center;
+    margin: auto;
+    padding: 10%;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    font-size: 2.5em;
+
+}
+
+#welcome_msg {
+    color: #222;
+    /*text-shadow: -1px 0 #01031E, 0 1px #01031E, 1px 0 #01031E, 0 -1px #01031E;*/
+}
+
+section {
+    max-width: 70vw;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.6em;
+    color: #888;
+}
+
+.feature {
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    height: 600px;
+}
+
+
+.feature img {
+    max-width: 350px;
+}
+
+.feature:nth-child(2n) {
+    background-color: #F3F3F1;
+    color: #888;
+}
+
+.feature:nth-child(2n) h3 {
+    color: #222;
+}
+
+.feature:nth-child(2n):before, .feature:nth-child(2n):after {
+    content: "";
+    position: absolute;
+    background: #F3F3F1;
+    top: 0;
+    bottom: 0;
+    width: 14vw;
+}
+
+.feature:nth-child(2n):before {
+    right: 100%;
+}
+
+.feature:nth-child(2n):after {
+    left: 100%;
+}
+
+.feature-bottom {
+    margin-top: 50px;
+}

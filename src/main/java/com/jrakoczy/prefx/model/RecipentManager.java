@@ -1,8 +1,6 @@
 package com.jrakoczy.prefx.model;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.prefs.InvalidPreferencesFormatException;
@@ -35,19 +33,23 @@ public class RecipentManager extends DataManager {
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
 	 */
-	public void addRecord(String email, int surveyId)
+	public void insertRecord(String email, int surveyId)
 			throws ClassNotFoundException, SQLException, IOException,
 			InvalidPreferencesFormatException {
-		DatabaseAccess dbAccess = new DatabaseAccess(context);
-
-		try (Connection connection = dbAccess.connect();) {
-			String insert = "INSERT INTO recipents (id, email, survey_id) VALUES (DEFAULT, ?, ?);";
-			PreparedStatement statement = connection.prepareStatement(insert);
-
-			statement.setString(1, email);
-			statement.setLong(2, surveyId);
-			statement.executeUpdate();
-		}
+		
+		String query = "INSERT INTO recipents (id, email, survey_id) VALUES (DEFAULT, ?, ?);";
+		StatementLambda stLambda = (statement) -> {
+			try {
+				statement.setString(1, email);
+				statement.setLong(2, surveyId);
+				statement.executeUpdate();
+				return statement.getResultSet();
+			} catch (Exception e) {
+				throw new SQLException();
+			}
+		};
+		
+		alter(query, stLambda);
 	}
 
 	/**
@@ -60,22 +62,22 @@ public class RecipentManager extends DataManager {
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
 	 */
-	public ResultSet findId(String email, long surveyId)
+	public ResultSet selectId(String email, long surveyId)
 			throws ClassNotFoundException, SQLException, IOException,
 			InvalidPreferencesFormatException {
-		ResultSet results = null;
-		DatabaseAccess dbAccess = new DatabaseAccess(context);
-
-		try (Connection connection = dbAccess.connect();) {
-			String select = "SELECT id FROM recipents WHERE email = ? AND survey_id = ?;";
-			PreparedStatement statement = connection.prepareStatement(select);
-
-			statement.setString(1, email);
-			statement.setLong(2, surveyId);
-			results = statement.executeQuery();
-		}
-
-		return results;
+		
+		String query = "SELECT id FROM recipents WHERE email = ? AND survey_id = ?;";
+		StatementLambda stLambda = (statement) -> {
+			try {
+				statement.setString(1, email);
+				statement.setLong(2, surveyId);
+				return statement.executeQuery();
+			} catch (Exception e) {
+				throw new SQLException();
+			}
+		};
+		
+		return select(query, stLambda);
 	}
 
 }

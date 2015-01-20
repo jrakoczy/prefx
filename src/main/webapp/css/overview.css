@@ -1,0 +1,30 @@
+header{
+    min-height: 50px;
+}
+
+section{
+    margin-left: 250px;
+}
+
+.body-panel{
+    margin-top: 10%;
+}
+
+li.list-group-item{
+    border-color: #000;
+    font-size: 0.7em;
+}
+
+li.list-group-item strong{
+    color: #000;
+}
+
+.list-group-item.active, .list-group-item.active:hover{
+    background-color: #DE9D05;
+    border-color: #DE9D05;
+    color: #fff;
+    text-align: center;
+}
+
+
+

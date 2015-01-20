@@ -16,9 +16,59 @@
   	<description></description>
   	<servlet-class>com.jrakoczy.prefx.test.TestServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>RegistrationServlet</servlet-name>
+  	<display-name>RegistrationServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.jrakoczy.prefx.controller.RegistrationServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.jrakoczy.prefx.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OverviewServlet</servlet-name>
+  	<display-name>OverviewServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.jrakoczy.prefx.controller.OverviewServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SurveyServlet</servlet-name>
+  	<display-name>SurveyServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.jrakoczy.prefx.controller.SurveyServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DisplaySurveyServlet</servlet-name>
+  	<display-name>DisplaySurveyServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.jrakoczy.prefx.controller.DisplaySurveyServlet</servlet-class>
+  </servlet>
  
   <servlet-mapping>
   	<servlet-name>TestServlet</servlet-name>
   	<url-pattern>/TestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegistrationServlet</servlet-name>
+  	<url-pattern>/RegistrationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OverviewServlet</servlet-name>
+  	<url-pattern>/OverviewServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SurveyServlet</servlet-name>
+  	<url-pattern>/SurveyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DisplaySurveyServlet</servlet-name>
+  	<url-pattern>/DisplaySurveyServlet</url-pattern>
   </servlet-mapping>
 </web-app>

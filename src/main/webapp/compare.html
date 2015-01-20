@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="author" content="Jakub Rakoczy">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="css/compare.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript" async></script>
+    <script src="js/jquery.fullPage.js" type="text/javascript" async></script>
+</head>
+<body>
+<div id="fullpage">
+    <div class="section">
+        <div class="slide border">
+            <h1>A PrefX Survey</h1>
+
+            <p id="intro">
+                This is a survey created by [name].
+                Every page contains names, photos and short descriptions of a pair of products.
+                We would appreciate if you got through the whole declaring
+                your choice between each two alternatives.
+            </p>
+
+            <p id="instructions">
+                You can define a magnitude of your preferences
+                by picking one of three values: "Probably", "Highly Likely", "Definitely".
+                Set it by clicking or dragging a slider.
+                Navigate using arrow keys.
+            </p>
+        </div>
+
+        <div class="slide">
+            <div class="product first">
+                <img src="img/crowd.jpg">
+
+                <h3 class="product-title">Product A</h3>
+
+                <p class="product-info">Donec eros dui, tincidunt laoreet sapien id, cursus fringilla diam.
+                    Sed faucibus purus non faucibus vestibulum.
+                    In ac sem nec velit tristique gravida eget at lacus.
+                    Cras et magna egestas, porta elit vel, viverra erat.</p>
+
+                <span class="range-hint hint-first"> Do you prefer Product A?</span>
+                <span class="range-hint hint-second">Do you prefer Product B?</span>
+
+                <input type="range" class="pref-slider" min="-3" max="3" step="1">
+
+                <span class="range-label def-first">Definitely</span>
+                <span class="range-label highly-first">Highly Likely</span>
+                <span class="range-label prolly-first">Probably</span>
+
+                <span class="range-label prolly-second">Probably</span>
+                <span class="range-label highly-second">Highly Likely</span>
+                <span class="range-label def-second">Definitely</span>
+
+            </div>
+            <div class="product second">
+                <img src="img/graph1.png">
+
+                <h3 class="product-title">Product B</h3>
+
+                <p class="product-info">
+                    Donec eros dui, tincidunt laoreet sapien id, cursus fringilla diam.
+                    Sed faucibus purus non faucibus vestibulum.
+                    In ac sem nec velit tristique gravida eget at lacus.
+                    Cras et magna egestas, porta elit vel, viverra erat.
+                </p>
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="product first">
+                <img src="img/graph2.png">
+
+                <h3 class="product-title">Product A</h3>
+
+                <p class="product-info">Donec eros dui, tincidunt laoreet sapien id, cursus fringilla diam.
+                    Sed faucibus purus non faucibus vestibulum.
+                    In ac sem nec velit tristique gravida eget at lacus.
+                    Cras et magna egestas, porta elit vel, viverra erat.</p>
+
+                <span class="range-hint hint-first"> Do you prefer Product A?</span>
+                <span class="range-hint hint-second">Do you prefer Product B?</span>
+
+                <input type="range" class="pref-slider" min="-3" max="3" step="1">
+
+                <span class="range-label def-first">Definitely</span>
+                <span class="range-label highly-first">Highly Likely</span>
+                <span class="range-label prolly-first">Probably</span>
+
+                <span class="range-label prolly-second">Probably</span>
+                <span class="range-label highly-second">Highly Likely</span>
+                <span class="range-label def-second">Definitely</span>
+
+            </div>
+            <div class="product second">
+                <img src="img/graph3.png">
+
+                <h3 class="product-title">Product B</h3>
+
+                <p class="product-info">
+                    Donec eros dui, tincidunt laoreet sapien id, cursus fringilla diam.
+                    Sed faucibus purus non faucibus vestibulum.
+                    In ac sem nec velit tristique gravida eget at lacus.
+                    Cras et magna egestas, porta elit vel, viverra erat.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="slide border">
+            <button type="submit" class="btn-black">Submit Survey</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

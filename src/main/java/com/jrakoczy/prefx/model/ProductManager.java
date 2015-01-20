@@ -2,21 +2,18 @@ package com.jrakoczy.prefx.model;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.prefs.InvalidPreferencesFormatException;
 
 import javax.servlet.ServletContext;
 
-public class ProductManager extends DataManager{
+public class ProductManager extends DataManager {
 
 	public ProductManager(ServletContext context) {
 		super(context);
 	}
-	
-	
+
 	/**
 	 * 
 	 * @param name
@@ -28,24 +25,27 @@ public class ProductManager extends DataManager{
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
 	 */
-	public void addRecord(String name,
-			String description, InputStream picture, long surveyId) throws ClassNotFoundException, SQLException,
-			IOException, InvalidPreferencesFormatException {
-		DatabaseAccess dbAccess = new DatabaseAccess(context);
+	public void insertRecord(String name, String description,
+			InputStream picture, long surveyId) throws ClassNotFoundException,
+			SQLException, IOException, InvalidPreferencesFormatException {
 
-		try (Connection connection = dbAccess.connect();) {
-			String insert = "INSERT INTO products (id, name, description, picture, survey_id) VALUES (DEFAULT, ?, ?, ?, ?);";
-			PreparedStatement statement = connection.prepareStatement(insert);
+		String query = "INSERT INTO products (id, name, description, picture, survey_id) VALUES (DEFAULT, ?, ?, ?, ?);";
+		StatementLambda stLambda = (statement) -> {
+			try {
+				statement.setString(1, name);
+				statement.setString(2, description);
+				statement.setBinaryStream(3, picture);
+				statement.setLong(4, surveyId);
+				statement.executeUpdate();
+				return statement.getResultSet();
+			} catch (Exception e) {
+				throw new SQLException();
+			}
+		};
 
-			
-			statement.setString(1, name);
-			statement.setString(2, description);
-			statement.setBinaryStream(3, picture);
-			statement.setLong(4, surveyId);
-			statement.executeUpdate();
-		}
+		alter(query, stLambda);
 	}
-	
+
 	/**
 	 * 
 	 * @param surveyId
@@ -55,19 +55,20 @@ public class ProductManager extends DataManager{
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
 	 */
-	public ResultSet findInfo(long surveyId) throws ClassNotFoundException, SQLException,
-			IOException, InvalidPreferencesFormatException {
-		DatabaseAccess dbAccess = new DatabaseAccess(context);
-		ResultSet results = null;
+	public ResultSet selectInfo(long surveyId) throws ClassNotFoundException,
+			SQLException, IOException, InvalidPreferencesFormatException {
 		
-		try (Connection connection = dbAccess.connect();) {
-			String select = "SELECT name, description, picture FROM products WHERE survey_id = ?;";
-			PreparedStatement statement = connection.prepareStatement(select);
-		
-			statement.setLong(1, surveyId);
-			results = statement.executeQuery();
-		}
-		
-		return results;
+		String query = "SELECT name, description, picture FROM products WHERE survey_id = ?;";
+		StatementLambda stLambda = (statement) -> {
+			try {
+				statement.setLong(1, surveyId);
+				return statement.executeQuery();
+			} catch (Exception e) {
+				throw new SQLException();
+			}
+		};
+
+
+		return select(query, stLambda);
 	}
 }

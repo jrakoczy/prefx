@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="author" content="Jakub Rakoczy">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<title>PrefX</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/global-responsive.css">
+<link rel="stylesheet" href="css/sidebar.css">
+<link rel="stylesheet" href="css/dropzone.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/survey.css">
+
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+<script src="js/jquery-1.11.1.min.js" type="text/javascript" async></script>
+<script src="js/bootstrap.js" type="text/javascript" async></script>
+<script src="js/dropzone.js" type="text/javascript" async></script>
+<script src="js/survey.js" type="text/javascript" async></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="js/tag-it.js" type="text/javascript" charset="utf-8" async></script>
+
+<head>
+</head>
+<body>
+<header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom" role="navigation">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">
+                    <a href="#">
+                        <img src="img/chart_icon.jpg">
+                        PrefX
+                    </a>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Sign out</a></li>
+                    <li><a href="#">Language</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</header>
+
+
+<!-- Sidebar -->
+
+<aside id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+       <li>
+            <a href="overview.html">Overview</a>
+        </li>
+        <li>
+            <a href="survey.html">New Survey</a>
+        </li>
+        <li>
+            <a href="results.html">Results</a>
+        </li>
+        <li>
+            <a href="#">Account</a>
+        </li>
+        <li>
+            <a href="#">Contact</a>
+        </li>
+    </ul>
+</aside>
+<!-- /#sidebar-wrapper -->
+
+<!-- Page content -->
+
+<div class="row body-panel">
+
+    <div class="col-md-11 col-md-offset-1">
+        <section>
+            <h1>Create New Survey</h1>
+
+            <form role="form" id="survey" enctype="multipart/form-data">
+                <fieldset class="full-form">
+                    <legend class="full-form">Survey info</legend>
+
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" placeholder="Title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">General info</label>
+
+                        <p class="help-block">Write short description of the conducted survey</p>
+                        <textarea id="content" class="form-control">
+                        </textarea>
+                    </div>
+
+                    <p>Emails:</p>
+                    <ul id="emails">
+                    </ul>
+                </fieldset>
+
+                <fieldset class="full-form" id="products">
+                    <legend class="full-form">Products</legend>
+                    <div class="form-group">
+                        <label for="product-name">Product name</label>
+                        <input type="text" class="form-control" id="product-name" placeholder="Enter a product name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">Product info</label>
+
+                        <p class="help-block">Add short product info</p>
+                        <textarea id="product-info" class="form-control"></textarea>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 ">
+                            <div class="form-group">
+
+                                <label>
+                                    <input type="checkbox" id="reference" name="referece">
+                                    Is it a reference product?
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-1 col-md-offset-5">
+                            <button type="button" class="btn-black" onclick="createDropzone()" id="btn-product">Add
+                            </button>
+                        </div>
+                        <div class="col-md-3 col-md-offset-8 hint">
+                            <p id="add-hint">Added data will be displayed in a list below.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-gallery col-md-12" id="survey-gallery">
+                    </div>
+                </fieldset>
+
+                <div class="fixed-action">
+                    <button type="submit" class="btn-lg btn-black">Send Survey</button>
+                </div>
+            </form>
+        </section>
+        <footer>
+            <p>&copy Jakub Rakoczy</p>
+        </footer>
+    </div>
+</div>
+
+
+</body>
+</html>
