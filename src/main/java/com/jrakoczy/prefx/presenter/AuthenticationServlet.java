@@ -24,10 +24,17 @@ public class AuthenticationServlet extends HttpServlet {
 	private static final String emailParam = "email";
 	private static final String passwordParam = "password";
 
+	@Override
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		try {
@@ -54,7 +61,8 @@ public class AuthenticationServlet extends HttpServlet {
 		String email = request.getParameter(emailParam);
 		String password = request.getParameter(passwordParam);
 
-		if (verifyUser(email, password, response)) {
+		if (email != null && password != null
+				&& verifyUser(email, password, response)) {
 			response.getWriter().println("ok");
 			HttpSession session = request.getSession();
 			session.setAttribute("email", email);
@@ -64,17 +72,18 @@ public class AuthenticationServlet extends HttpServlet {
 		}
 	}
 
-	private boolean verifyUser(String email, String password, HttpServletResponse response)
-			throws NoSuchAlgorithmException, ClassNotFoundException,
-			SQLException, IOException, InvalidPreferencesFormatException {
+	private boolean verifyUser(String email, String password,
+			HttpServletResponse response) throws NoSuchAlgorithmException,
+			ClassNotFoundException, SQLException, IOException,
+			InvalidPreferencesFormatException {
 		ServletContext context = getServletContext();
 		UserManager userManager = new UserManager(context);
 		String rqPasswordHash = Encryption.hashSha256(password);
-		
-		ResultSet dbResult = userManager.findPasswordHash(email);		
-		dbResult.next();
-		String dbPasswordHash = dbResult.getString("password_hash");
-		
+
+		ResultSet passwordResSet = userManager.selectPasswordHash(email);
+		passwordResSet.next();
+		String dbPasswordHash = passwordResSet.getString("password_hash");
+
 		return rqPasswordHash.equals(dbPasswordHash);
 	}
 }

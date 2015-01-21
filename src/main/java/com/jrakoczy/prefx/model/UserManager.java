@@ -60,11 +60,36 @@ public class UserManager extends DataManager {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public ResultSet findPasswordHash(String email)
+	public ResultSet selectPasswordHash(String email)
 			throws ClassNotFoundException, SQLException, IOException,
 			InvalidPreferencesFormatException {
 
 		String query = "SELECT password_hash FROM users WHERE email = ?;";
+		StatementLambda stLambda = (statement) -> {
+			try {
+				statement.setString(1, email);
+				return statement.executeQuery();
+			} catch (Exception e) {
+				throw new SQLException();
+			}
+		};
+
+		return select(query, stLambda);
+	}
+
+	/**
+	 * 
+	 * @param email
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 * @throws IOException
+	 * @throws InvalidPreferencesFormatException
+	 */
+	public ResultSet selectId(String email) throws ClassNotFoundException,
+			SQLException, IOException, InvalidPreferencesFormatException {
+
+		String query = "SELECT id FROM users WHERE email = ?;";
 		StatementLambda stLambda = (statement) -> {
 			try {
 				statement.setString(1, email);

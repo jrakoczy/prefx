@@ -23,6 +23,12 @@ public class RegistrationServlet extends HttpServlet {
 	private static final String emailParam = "email";
 	private static final String passwordParam = "password";
 
+	@Override
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -55,9 +61,12 @@ public class RegistrationServlet extends HttpServlet {
 
 		String email = request.getParameter(emailParam);
 		String password = request.getParameter(passwordParam);
-		String passwordHash = Encryption.hashSha256(password);
 
-		userManager.insertRecord(email, passwordHash);
+		if (email != null && password != null) {
+			String passwordHash = Encryption.hashSha256(password);
+			userManager.insertRecord(email, passwordHash);
+		}
+
 		RequestDispatcher rd = request.getRequestDispatcher("login.html");
 		rd.forward(request, response);
 	}

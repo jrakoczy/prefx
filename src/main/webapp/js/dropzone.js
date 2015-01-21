@@ -1956,7 +1956,7 @@ function createDropzone() {
     var container = document.getElementById("survey-gallery");
     var productName = document.getElementById("product-name");
     var productInfo = document.getElementById("product-info");
-    var backendUrl = "test.php";
+    var backendUrl = "http://localhost:8080/prefx/createSurvey";
 
     if(productName.value)
         createNewRow(backendUrl);

@@ -25,10 +25,6 @@
 
 
 	<servlet>
-		<servlet-name>TestServlet</servlet-name>
-		<servlet-class>com.jrakoczy.prefx.test.TestServlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>RegistrationServlet</servlet-name>
 		<servlet-class>com.jrakoczy.prefx.presenter.RegistrationServlet</servlet-class>
 	</servlet>
@@ -41,18 +37,20 @@
 		<servlet-class>com.jrakoczy.prefx.presenter.OverviewServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>SurveyServlet</servlet-name>
-		<servlet-class>com.jrakoczy.prefx.presenter.SurveyServlet</servlet-class>
+		<servlet-name>CreateSurveyServlet</servlet-name>
+		<servlet-class>com.jrakoczy.prefx.presenter.CreateSurveyServlet</servlet-class>
+		<multipart-config>
+			<max-file-size>10485760</max-file-size>
+			<max-request-size>20971520</max-request-size>
+			<file-size-threshold>5242880</file-size-threshold>
+		</multipart-config>
 	</servlet>
 	<servlet>
 		<servlet-name>DisplaySurveyServlet</servlet-name>
 		<servlet-class>com.jrakoczy.prefx.presenter.DisplaySurveyServlet</servlet-class>
 	</servlet>
 
-	<servlet-mapping>
-		<servlet-name>TestServlet</servlet-name>
-		<url-pattern>/TestServlet</url-pattern>
-	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>RegistrationServlet</servlet-name>
 		<url-pattern>/register</url-pattern>
@@ -62,17 +60,18 @@
 		<url-pattern>/authenticate</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>OverviewServlet</servlet-name>
-		<url-pattern>/OverviewServlet</url-pattern>
+		<servlet-name>CreateSurveyServlet</servlet-name>
+		<url-pattern>/create</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>SurveyServlet</servlet-name>
-		<url-pattern>/SurveyServlet</url-pattern>
+		<servlet-name>OverviewServlet</servlet-name>
+		<url-pattern>/OverviewServlet</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>DisplaySurveyServlet</servlet-name>
 		<url-pattern>/DisplaySurveyServlet</url-pattern>
 	</servlet-mapping>
+
 
 
 	<session-config>

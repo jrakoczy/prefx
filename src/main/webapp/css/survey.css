@@ -2,8 +2,6 @@ header {
     min-height: 50px;
 }
 
-
-
 section {
     margin-left: 20%;
 }
@@ -71,6 +69,7 @@ legend.full-form {
     border-top: 1px solid #888;
 }
 
+
 .preview-col {
     border-right: 1px solid #ccc;
     min-height: 220px;
@@ -78,8 +77,19 @@ legend.full-form {
     margin: 20px auto;
 }
 
-.dropzone {
-    min-height: 220px;
+
+.upload-img-div {
+    background: #F3F3F1;
+    vertical-align: middle;
+}
+
+
+.img-input {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
 }
 
 .fixed-action {
@@ -103,7 +113,7 @@ legend.full-form {
     bottom: 15%;
 }
 
-footer{
+footer {
     background-color: white;
     width: 50%;
 }
@@ -117,3 +127,7 @@ footer{
         bottom: 0%;
     }
 }
+
+
+
+
