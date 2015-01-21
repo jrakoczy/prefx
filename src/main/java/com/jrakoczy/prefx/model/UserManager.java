@@ -7,6 +7,8 @@ import java.util.prefs.InvalidPreferencesFormatException;
 
 import javax.servlet.ServletContext;
 
+import com.jrakoczy.prefx.model.dto.UserDTO;
+
 /**
  * A class used to perform operations on user data stored in a database.
  * 
@@ -33,15 +35,15 @@ public class UserManager extends DataManager {
 	 * @throws InvalidPreferencesFormatException
 	 * @throws SQLException
 	 */
-	public void insertRecord(String email, String passwordHash)
+	public void insertRecord(UserDTO user)
 			throws ClassNotFoundException, IOException,
 			InvalidPreferencesFormatException, SQLException {
 
 		String query = "INSERT INTO users (id, email, password_hash) VALUES (DEFAULT, ?, ?);";
 		StatementLambda stLambda = (statement) -> {
 			try {
-				statement.setString(1, email);
-				statement.setString(2, passwordHash);
+				statement.setString(1, user.getEmail());
+				statement.setString(2, user.getPasswordHash());
 				statement.executeUpdate();
 				return statement.getResultSet();
 			} catch (Exception e) {

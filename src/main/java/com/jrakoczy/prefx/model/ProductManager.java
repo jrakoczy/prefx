@@ -1,12 +1,13 @@
 package com.jrakoczy.prefx.model;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.prefs.InvalidPreferencesFormatException;
 
 import javax.servlet.ServletContext;
+
+import com.jrakoczy.prefx.model.dto.ProductDTO;
 
 public class ProductManager extends DataManager {
 
@@ -25,17 +26,16 @@ public class ProductManager extends DataManager {
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
 	 */
-	public void insertRecord(String name, String description,
-			InputStream picture, long surveyId) throws ClassNotFoundException,
+	public void insertRecord(ProductDTO product) throws ClassNotFoundException,
 			SQLException, IOException, InvalidPreferencesFormatException {
 
 		String query = "INSERT INTO products (id, name, description, picture, survey_id) VALUES (DEFAULT, ?, ?, ?, ?);";
 		StatementLambda stLambda = (statement) -> {
 			try {
-				statement.setString(1, name);
-				statement.setString(2, description);
-				statement.setBinaryStream(3, picture);
-				statement.setLong(4, surveyId);
+				statement.setString(1, product.getName());
+				statement.setString(2, product.getDescription());
+				statement.setBinaryStream(3, product.getPicutre());
+				statement.setLong(4, product.getSid());
 				statement.executeUpdate();
 				return statement.getResultSet();
 			} catch (Exception e) {

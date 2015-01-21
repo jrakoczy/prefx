@@ -1,25 +1,25 @@
 package com.jrakoczy.prefx.model.dto;
 
 public class ResultDTO {
-	Long product1Id;
-	Long product2Id;
+	Long firstProductId;
+	Long secondProductId;
 	Long value;
 	Long rid;
 
-	public Long getProduct1Id() {
-		return product1Id;
+	public Long getFirstProductId() {
+		return firstProductId;
 	}
 
-	public void setProduct1Id(Long product1Id) {
-		this.product1Id = product1Id;
+	public void setFirstProductId(Long firstProductId) {
+		this.firstProductId = firstProductId;
 	}
 
-	public Long getProduct2Id() {
-		return product2Id;
+	public Long getSecondProductId() {
+		return secondProductId;
 	}
 
-	public void setProduct2Id(Long product2Id) {
-		this.product2Id = product2Id;
+	public void setSecondProductId(Long secondProductId) {
+		this.secondProductId = secondProductId;
 	}
 
 	public Long getValue() {
@@ -37,5 +37,5 @@ public class ResultDTO {
 	public void setRid(Long rid) {
 		this.rid = rid;
 	}
-	
+
 }

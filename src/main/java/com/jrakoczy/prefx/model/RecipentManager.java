@@ -7,6 +7,8 @@ import java.util.prefs.InvalidPreferencesFormatException;
 
 import javax.servlet.ServletContext;
 
+import com.jrakoczy.prefx.model.dto.RecipentDTO;
+
 /**
  * A class used to perform operations on recipients data stored in a database.
  * 
@@ -33,15 +35,15 @@ public class RecipentManager extends DataManager {
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
 	 */
-	public void insertRecord(String email, int surveyId)
+	public void insertRecord(RecipentDTO recipent)
 			throws ClassNotFoundException, SQLException, IOException,
 			InvalidPreferencesFormatException {
 		
 		String query = "INSERT INTO recipents (id, email, survey_id) VALUES (DEFAULT, ?, ?);";
 		StatementLambda stLambda = (statement) -> {
 			try {
-				statement.setString(1, email);
-				statement.setLong(2, surveyId);
+				statement.setString(1, recipent.getEmail());
+				statement.setLong(2, recipent.getSid());
 				statement.executeUpdate();
 				return statement.getResultSet();
 			} catch (Exception e) {

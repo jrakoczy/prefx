@@ -7,6 +7,8 @@ import java.util.prefs.InvalidPreferencesFormatException;
 
 import javax.servlet.ServletContext;
 
+import com.jrakoczy.prefx.model.dto.ResultDTO;
+
 /**
  * A class used to perform operations on surveys data stored in a database.
  * 
@@ -28,16 +30,16 @@ public class ResultManager extends DataManager {
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
 	 */
-	public void insertRecord(long firstProductId, long secondProductId,
-			long surveyId) throws ClassNotFoundException, SQLException,
+	public void insertRecord(ResultDTO result) throws ClassNotFoundException, SQLException,
 			IOException, InvalidPreferencesFormatException {
 		
-		String query = "INSERT INTO surveys (product1_id, product2_id, survey_id) VALUES (?, ?, ?);";
+		String query = "INSERT INTO surveys (product1_id, product2_id, recipent_id, value) VALUES (?, ?, ?);";
 		StatementLambda stLambda = (statement) -> {
 			try {
-				statement.setLong(1, firstProductId);
-				statement.setLong(2, secondProductId);
-				statement.setLong(3, surveyId);
+				statement.setLong(1, result.getFirstProductId());
+				statement.setLong(2, result.getSecondProductId());
+				statement.setLong(3, result.getRid());
+				statement.setLong(3, result.getValue());
 				statement.executeUpdate();
 				return statement.getResultSet();
 			} catch (Exception e) {

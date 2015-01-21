@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jrakoczy.prefx.model.UserManager;
+import com.jrakoczy.prefx.model.dto.UserDTO;
 import com.jrakoczy.prefx.utils.Encryption;
 
 /**
@@ -64,7 +65,10 @@ public class RegistrationServlet extends HttpServlet {
 
 		if (email != null && password != null) {
 			String passwordHash = Encryption.hashSha256(password);
-			userManager.insertRecord(email, passwordHash);
+			UserDTO user = new UserDTO();
+			user.setEmail(email);
+			user.setPasswordHash(passwordHash);
+			userManager.insertRecord(user);
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("login.html");

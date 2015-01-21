@@ -7,6 +7,8 @@ import java.util.prefs.InvalidPreferencesFormatException;
 
 import javax.servlet.ServletContext;
 
+import com.jrakoczy.prefx.model.dto.SurveyDTO;
+
 /**
  * A class used to perform operations on recipients data stored in a database.
  * 
@@ -27,15 +29,15 @@ public class SurveyManager extends DataManager {
 	 * @throws IOException
 	 * @throws InvalidPreferencesFormatException
 	 */
-	public void insertRecord(String title, long userId)
+	public void insertRecord(SurveyDTO survey)
 			throws ClassNotFoundException, SQLException, IOException,
 			InvalidPreferencesFormatException {
 
 		String query = "INSERT INTO surveys (id, title, user_id) VALUES (DEFAULT, ?, ?);";
 		StatementLambda stLambda = (statement) -> {
 			try {
-				statement.setString(1, title);
-				statement.setLong(2, userId);
+				statement.setString(1, survey.getTitle());
+				statement.setLong(2, survey.getUid());
 				statement.executeUpdate();
 				return statement.getResultSet();
 			} catch (Exception e) {
